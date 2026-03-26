@@ -1,0 +1,137 @@
+head--------------
+test_data
+   user_id  merchant_id  prob
+0   163968         4605   NaN
+1   360576         1581   NaN
+2    98688         1964   NaN
+3    98688         3645   NaN
+4   295296         3361   NaN
+train_data
+   user_id  merchant_id  label
+0    34176         3906      0
+1    34176          121      0
+2    34176         4356      1
+3    34176         2217      0
+4   230784         4818      0
+user_info
+   user_id  age_range  gender
+0   376517        6.0     1.0
+1   234512        5.0     0.0
+2   344532        5.0     0.0
+3   186135        5.0     0.0
+4    30230        5.0     0.0
+user_log
+   user_id  item_id  cat_id  seller_id  brand_id  time_stamp  action_type
+0   328862   323294     833       2882    2661.0         829            0
+1   328862   844400    1271       2882    2661.0         829            0
+2   328862   575153    1271       2882    2661.0         829            0
+3   328862   996875    1271       2882    2661.0         829            0
+4   328862  1086186    1271       1253    1049.0         829            0
+info--------------
+test_data
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 261477 entries, 0 to 261476
+Data columns (total 3 columns):
+ #   Column       Non-Null Count   Dtype
+---  ------       --------------   -----
+ 0   user_id      261477 non-null  int64
+ 1   merchant_id  261477 non-null  int64
+ 2   prob         0 non-null       float64
+dtypes: float64(1), int64(2)
+memory usage: 6.0 MB
+None
+train_data
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 260864 entries, 0 to 260863
+Data columns (total 3 columns):
+ #   Column       Non-Null Count   Dtype
+---  ------       --------------   -----
+ 0   user_id      260864 non-null  int64
+ 1   merchant_id  260864 non-null  int64
+ 2   label        260864 non-null  int64
+dtypes: int64(3)
+memory usage: 6.0 MB
+None
+user_info
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 424170 entries, 0 to 424169
+Data columns (total 3 columns):
+ #   Column     Non-Null Count   Dtype
+---  ------     --------------   -----
+ 0   user_id    424170 non-null  int64
+ 1   age_range  421953 non-null  float64
+ 2   gender     417734 non-null  float64
+dtypes: float64(2), int64(1)
+memory usage: 9.7 MB
+None
+user_log
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 54925330 entries, 0 to 54925329
+Data columns (total 7 columns):
+ #   Column       Dtype
+---  ------       -----
+ 0   user_id      int64
+ 1   item_id      int64
+ 2   cat_id       int64
+ 3   seller_id    int64
+ 4   brand_id     float64
+ 5   time_stamp   int64
+ 6   action_type  int64
+dtypes: float64(1), int64(6)
+memory usage: 2.9 GB
+None
+describe--------------
+test_data
+             user_id    merchant_id  prob
+count  261477.000000  261477.000000   0.0
+mean   212121.259128    2539.620077   NaN
+std    122480.366678    1451.697856   NaN
+min         2.000000       2.000000   NaN
+25%    106317.000000    1340.000000   NaN
+50%    212289.000000    2482.000000   NaN
+75%    318194.000000    3898.000000   NaN
+max    424169.000000    4993.000000   NaN
+train_data
+             user_id    merchant_id          label
+count  260864.000000  260864.000000  260864.000000
+mean   211889.321420    2540.292363       0.061151
+std    122399.488027    1451.207514       0.239607
+min         1.000000       2.000000       0.000000
+25%    105488.000000    1340.000000       0.000000
+50%    211927.500000    2482.000000       0.000000
+75%    317670.500000    3898.000000       0.000000
+max    424170.000000    4993.000000       1.000000
+user_info
+             user_id      age_range         gender
+count  424170.000000  421953.000000  417734.000000
+mean   212085.500000       2.930262       0.341179
+std    122447.476179       1.942978       0.524112
+min         1.000000       0.000000       0.000000
+25%    106043.250000       2.000000       0.000000
+50%    212085.500000       3.000000       0.000000
+75%    318127.750000       4.000000       1.000000
+max    424170.000000       8.000000       2.000000
+user_log
+            user_id       item_id  ...    time_stamp   action_type
+count  5.492533e+07  5.492533e+07  ...  5.492533e+07  5.492533e+07
+mean   2.121568e+05  5.538613e+05  ...  9.230953e+02  2.854458e-01
+std    1.222872e+05  3.221459e+05  ...  1.954305e+02  8.075806e-01
+min    1.000000e+00  1.000000e+00  ...  5.110000e+02  0.000000e+00
+25%    1.063360e+05  2.731680e+05  ...  7.300000e+02  0.000000e+00
+50%    2.126540e+05  5.555290e+05  ...  1.010000e+03  0.000000e+00
+75%    3.177500e+05  8.306890e+05  ...  1.109000e+03  0.000000e+00
+max    4.241700e+05  1.113166e+06  ...  1.112000e+03  3.000000e+00
+
+[8 rows x 7 columns]
+
+Process finished with exit code 0
+构造后的特征
+Index(['user_id', 'merchant_id', 'label', 'prob', 'age_range', 'gender',
+       'item_path', 'cat_path', 'seller_path', 'brand_path', 'time_stamp_path',
+       'action_type_path', 'user_cnt', 'cat_nunique', 'brand_nunique',
+       'item_nunique', 'time_stamp_nunique', 'action_type_nunique',
+       'time_stamp_max', 'time_stamp_min', 'time_stamp_std',
+       'time_stamp_range', 'seller_most_1', 'cat_most_1', 'brand_most_1',
+       'action_type_1', 'seller_most_1_cnt', 'cat_most_1_cnt',
+       'brand_most_1_cnt', 'action_type_1_cnt'],
+      dtype='object')
